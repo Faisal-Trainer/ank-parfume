@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ank-parfume.netlify.app/sitemap.xml

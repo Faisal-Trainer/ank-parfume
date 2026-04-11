@@ -108,7 +108,7 @@ const products = [
   {
     name: "Dior Sauvage",
     cat: "men",
-    desc: "Segar ambisius. Lavender, bergamot & amber — parfum paling ikonik untuk pria.",
+    desc: "Segar ambisius. Lavender & bergamot — parfum paling ikonik & terlaris di Bukittinggi.",
     p30: 80000,
     p50: 125000,
     p100: 180000,
@@ -230,7 +230,7 @@ const products = [
   {
     name: "SOTB",
     cat: "unisex",
-    desc: "Sillage kuat, daya tahan luar biasa. Favorit yang selalu sold-out di toko.",
+    desc: "Sillage kuat, daya tahan luar biasa. Favorit pelanggan yang sering sold-out di Bukittinggi.",
     p30: 70000,
     p50: 110000,
     p100: 165000,
