@@ -21,7 +21,7 @@ function buildWALink(productName) {
 let activeFilter = "all";
 let activeSearch = "";
 let currentPage = 1;
-const itemsPerPage = 10;
+const itemsPerPage = 12;
 
 /* ---------- RENDER PRODUCTS ---------- */
 function renderProducts() {
