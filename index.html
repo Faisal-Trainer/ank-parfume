@@ -39,6 +39,45 @@
     <meta property="og:site_name" content="ANK Parfume" />
     <meta property="og:locale" content="id_ID" />
 
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ANK Parfume Bukittinggi",
+        "image": "https://ank-parfume.netlify.app/img/ankparfume.webp",
+        "@id": "https://ank-parfume.netlify.app/",
+        "url": "https://ank-parfume.netlify.app/",
+        "telephone": "+6282169856049",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Raya Bukittinggi",
+          "addressLocality": "Bukittinggi",
+          "addressRegion": "Sumatera Barat",
+          "postalCode": "26111",
+          "addressCountry": "ID"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -0.305,
+          "longitude": 100.369
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "22:00"
+        },
+        "sameAs": [
+          "https://instagram.com/ANK_Parfume",
+          "https://facebook.com/ANKParfume",
+          "https://www.tiktok.com/@ank_parfume",
+          "https://www.google.com/maps/place/ANK+PARFUME/@-0.3178496,100.384768,15z/data=!4m6!3m5!1s0x2fd539007cd1fa05:0xf27f114d2aedf53f!8m2!3d-0.314219!4d100.3777422!16s%2Fg%2F11xz5n4lsz?entry=ttu&g_ep=EgoyMDI2MDQxMi4wIKXMDSoASAFQAw%3D%3D"
+        ],
+        "priceRange": "$$"
+      }
+    </script>
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
@@ -129,7 +168,7 @@
         </a>
         <nav class="nav-links" id="navLinks" aria-label="Menu utama">
           <a href="#beranda" class="nav-link">Beranda</a>
-          <a href="#produk" class="nav-link">Produk</a>
+          <a href="produk.html" class="nav-link">Produk</a>
           <a href="#tentang" class="nav-link">Tentang</a>
           <a href="#testimoni" class="nav-link">Testimoni</a>
           <a href="#kontak" class="nav-link">Kontak</a>
@@ -185,8 +224,8 @@
             Tersedia 60+ varian parfum branded &amp; lokal premium. 100%
             Original, Tahan Lama, &amp; Bisa COD!
           </p>
-          <div class="hero-cta">
-            <a href="#produk" class="btn-primary">Lihat Katalog</a>
+          <div class="reveal">
+            <a href="produk.html" class="btn-primary">Lihat Koleksi Lengkap</a>
             <a
               href="https://wa.me/6282169856049?text=Halo%20ANK%20Parfume%2C%20saya%20ingin%20melihat%20katalog%20parfum."
               class="btn-outline"
@@ -298,11 +337,12 @@
               Unisex
             </button>
           </div>
-
-          <div class="produk-grid" id="produkGrid" aria-live="polite">
-            <!-- Injected by JS -->
+          <div id="paginationContainer" class="pagination-container reveal"></div>
+          <div class="produk-grid" id="produkGrid">
+            <!-- Injected by products.js & script.js -->
           </div>
-
+          <div id="paginationContainer" class="pagination-container reveal"></div>
+          
           <div class="katalog-note reveal">
             <p>
               Masih banyak pilihan lain! Hubungi kami untuk katalog lengkap di
@@ -648,7 +688,7 @@
           <h4>Quick Links</h4>
           <nav aria-label="Footer navigation">
             <a href="#beranda">Beranda</a>
-            <a href="#produk">Produk</a>
+            <a href="produk.html">Produk</a>
             <a href="#tentang">Tentang</a>
             <a href="#testimoni">Testimoni</a>
             <a href="#kontak">Kontak</a>
@@ -657,9 +697,9 @@
         <div class="footer-links">
           <h4>Kategori Parfum</h4>
           <nav aria-label="Kategori parfum">
-            <a href="#produk" onclick="filterProducts('women')">For Women</a>
-            <a href="#produk" onclick="filterProducts('men')">For Men</a>
-            <a href="#produk" onclick="filterProducts('unisex')">Unisex</a>
+            <a href="produk.html?filter=women">For Women</a>
+            <a href="produk.html?filter=men">For Men</a>
+            <a href="produk.html?filter=unisex">Unisex</a>
             <a
               href="https://wa.me/6282169856049?text=Halo%20ANK%20Parfume%2C%20saya%20mau%20tanya%20parfum%20COD%20di%20Bukittinggi."
               target="_blank"
@@ -677,6 +717,7 @@
       </div>
     </footer>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

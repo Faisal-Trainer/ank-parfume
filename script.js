@@ -4,243 +4,9 @@
 
 "use strict";
 
-/* ---------- DATA PRODUK (dari Price List resmi) ---------- */
-const products = [
-  // WOMEN
-  {
-    name: "Gucci Bloom",
-    cat: "women",
-    desc: "Floral putih yang murni & feminim. Dipakai sekali, diingat selamanya.",
-    p30: 83000,
-    p50: 130000,
-    p100: 185000,
-  },
-  {
-    name: "YSL Libre",
-    cat: "women",
-    desc: "Sensual dan berani. Lavender bertemu vanilla — ikon kemandirian wanita modern.",
-    p30: 85000,
-    p50: 135000,
-    p100: 190000,
-  },
-  {
-    name: "Dior J'Adore",
-    cat: "women",
-    desc: "Aroma floral mewah yang tak lekang waktu. Klasik sejati untuk hari istimewa.",
-    p30: 70000,
-    p50: 110000,
-    p100: 170000,
-  },
-  {
-    name: "Armani My Way",
-    cat: "women",
-    desc: "Woody floral yang hangat. Terinspirasi perjalanan dunia, cocok untuk petualang.",
-    p30: 78000,
-    p50: 125000,
-    p100: 180000,
-  },
-  {
-    name: "Jo Malone Peony",
-    cat: "women",
-    desc: "Segar dan elegan. Bunga peoni yang mekar lembut di kulitmu sepanjang hari.",
-    p30: 75000,
-    p50: 120000,
-    p100: 175000,
-  },
-  {
-    name: "Gucci F. Gardenia",
-    cat: "women",
-    desc: "Perpaduan gardenia dan bergamot yang sensual. Feminitas dalam bentuk botol.",
-    p30: 80000,
-    p50: 127000,
-    p100: 182000,
-  },
-  {
-    name: "D&G Light Blue",
-    cat: "women",
-    desc: "Citrus segar khas Mediterania. Ringan, menyenangkan, cocok untuk daily wear.",
-    p30: 75000,
-    p50: 120000,
-    p100: 170000,
-  },
-  {
-    name: "Prada Paradoxe",
-    cat: "women",
-    desc: "Floral musky modern. Kontradiksi yang memikat — dinamis namun tetap feminin.",
-    p30: 81000,
-    p50: 130000,
-    p100: 185000,
-  },
-  {
-    name: "Pink Chiffon",
-    cat: "women",
-    desc: "Manis & playful. Aroma buah dan bunga ringan yang cocok untuk wanita energik.",
-    p30: 85000,
-    p50: 153000,
-    p100: 190000,
-  },
-  {
-    name: "Miss Dior",
-    cat: "women",
-    desc: "Rosy chypre yang romantis. Ungkapan cinta dari Dior untuk jiwa yang bebas.",
-    p30: 70000,
-    p50: 110000,
-    p100: 170000,
-  },
-  {
-    name: "Escada Cherry",
-    cat: "women",
-    desc: "Fruity floral ceria. Cherry yang meledak di kulit, ceria sepanjang hari.",
-    p30: 78000,
-    p50: 125000,
-    p100: 180000,
-  },
-  {
-    name: "Alien Goddes",
-    cat: "women",
-    desc: "Woody amber yang misterius. Kekuatan dan keanggunan dalam satu semprot.",
-    p30: 75000,
-    p50: 120000,
-    p100: 175000,
-  },
-
-  // MEN
-  {
-    name: "Dior Sauvage",
-    cat: "men",
-    desc: "Segar ambisius. Lavender & bergamot — parfum paling ikonik & terlaris di Bukittinggi.",
-    p30: 80000,
-    p50: 125000,
-    p100: 180000,
-  },
-  {
-    name: "One Million Lucky",
-    cat: "men",
-    desc: "Woody spicy yang bold. Keberuntungan dalam botol berbentuk batangan emas.",
-    p30: 85000,
-    p50: 135000,
-    p100: 190000,
-  },
-  {
-    name: "Creet Aventus",
-    cat: "men",
-    desc: 'Fruity chypre premium. Dikenal sebagai "raja parfum" dunia — berasa eksklusif.',
-    p30: 70000,
-    p50: 110000,
-    p100: 165000,
-  },
-  {
-    name: "Mont Blanc Legent",
-    cat: "men",
-    desc: "Lavender fougère yang bersih. Elegan tanpa berlebihan, cocok untuk kantor.",
-    p30: 75000,
-    p50: 115000,
-    p100: 170000,
-  },
-  {
-    name: "Dunhill Blue",
-    cat: "men",
-    desc: "Aquatic woody yang segar. Teman setia pria aktif dari pagi hingga malam.",
-    p30: 78000,
-    p50: 125000,
-    p100: 180000,
-  },
-  {
-    name: "Afnan GPM",
-    cat: "men",
-    desc: "Oriental woody yang kaya. Terinspirasi keanggunan Timur Tengah, super longlast.",
-    p30: 80000,
-    p50: 127000,
-    p100: 182000,
-  },
-  {
-    name: "Bulgari Extream",
-    cat: "men",
-    desc: "Citrus woody yang tajam. Ketegasan yang bersih — first impression terbaik.",
-    p30: 75000,
-    p50: 115000,
-    p100: 170000,
-  },
-  {
-    name: "Armani SWY",
-    cat: "men",
-    desc: "Aromatic fougère yang elegan. Si Armani tapi lebih berani dan maskulin.",
-    p30: 75000,
-    p50: 115000,
-    p100: 170000,
-  },
-  {
-    name: "212 VIP Men",
-    cat: "men",
-    desc: "Woody musky urban. Untuk pria kota yang percaya diri dan penuh karisma.",
-    p30: 75000,
-    p50: 115000,
-    p100: 170000,
-  },
-  {
-    name: "Versace Erios",
-    cat: "men",
-    desc: "Aquatic ambergris segar. Semangat Mediterania yang selalu relevan.",
-    p30: 70000,
-    p50: 110000,
-    p100: 165000,
-  },
-
-  // UNISEX
-  {
-    name: "YSL Black Opium",
-    cat: "unisex",
-    desc: "Kopi & vanilla yang menggoda. Gelap, sensual, dan bikin ketagihan.",
-    p30: 80000,
-    p50: 125000,
-    p100: 180000,
-  },
-  {
-    name: "Baccarat",
-    cat: "unisex",
-    desc: "Oud rose yang mewah. Aroma yang biasanya hanya ditemukan di parfum jutaan.",
-    p30: 70000,
-    p50: 110000,
-    p100: 165000,
-  },
-  {
-    name: "LV Ombre Nomade",
-    cat: "unisex",
-    desc: "Smoky oud amber. Petualangan gurun dalam semprot — statement parfum sejati.",
-    p30: 75000,
-    p50: 115000,
-    p100: 170000,
-  },
-  {
-    name: "Tamburins Chamo",
-    cat: "unisex",
-    desc: "Aquatic floral yang unik. K-beauty vibes, digemari gen-Z dari Seoul ke Bukittinggi.",
-    p30: 70000,
-    p50: 110000,
-    p100: 165000,
-  },
-  {
-    name: "maccera L. Vanilla",
-    cat: "unisex",
-    desc: "Vanilla musked yang hangat. Nyaman seperti pelukan — cocok untuk semua musim.",
-    p30: 75000,
-    p50: 115000,
-    p100: 170000,
-  },
-  {
-    name: "SOTB",
-    cat: "unisex",
-    desc: "Sillage kuat, daya tahan luar biasa. Favorit pelanggan yang sering sold-out di Bukittinggi.",
-    p30: 70000,
-    p50: 110000,
-    p100: 165000,
-  },
-];
-
-/* ---------- RENDER PRODUCTS ---------- */
-let activeFilter = "all";
-
+/* ---------- UTILS ---------- */
 function formatRupiah(n) {
+  if (!n) return "Rp -";
   return "Rp " + n.toLocaleString("id-ID");
 }
 
@@ -251,46 +17,154 @@ function buildWALink(productName) {
   return `https://wa.me/6282169856049?text=${msg}`;
 }
 
-function renderProducts(filter) {
+/* ---------- GLOBAL STATE ---------- */
+let activeFilter = "all";
+let activeSearch = "";
+let currentPage = 1;
+const itemsPerPage = 10;
+
+/* ---------- RENDER PRODUCTS ---------- */
+function renderProducts() {
   const grid = document.getElementById("produkGrid");
   if (!grid) return;
-  const filtered =
-    filter === "all" ? products : products.filter((p) => p.cat === filter);
-  grid.innerHTML = "";
 
-  filtered.forEach((p, i) => {
+  // 1. Filtering & Searching
+  let filtered = products;
+  if (activeFilter !== "all") {
+    filtered = filtered.filter((p) => p.cat === activeFilter);
+  }
+  if (activeSearch) {
+    const q = activeSearch.toLowerCase();
+    filtered = filtered.filter((p) => p.name.toLowerCase().includes(q));
+  }
+
+  // 2. Pagination Logic
+  const totalItems = filtered.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  
+  if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+
+  // Special Home Page Behavior:
+  // Initially show only 6 products without pagination.
+  // BUT if a filter is active or search is active, show full pagination.
+  const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" || !window.location.pathname.includes("produk.html");
+  let pagedData = filtered;
+  
+  const isInitialHome = isIndex && activeFilter === "all" && !activeSearch && currentPage === 1;
+
+  if (isInitialHome) {
+     // Show 6 featured items for the clean "Hero" look
+     pagedData = filtered.slice(0, 6);
+     togglePaginationVisibility(false);
+  } else {
+     // Normal Paginated View (10 per page)
+     const start = (currentPage - 1) * itemsPerPage;
+     const end = start + itemsPerPage;
+     pagedData = filtered.slice(start, end);
+     togglePaginationVisibility(true);
+     renderPagination(totalItems);
+  }
+
+  // 3. Render Grid
+  grid.innerHTML = "";
+  if (pagedData.length === 0) {
+    grid.innerHTML = `<div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 4rem; color: var(--white-mute);">Maaf, parfum "${activeSearch}" tidak ditemukan.</div>`;
+    togglePaginationVisibility(false);
+    return;
+  }
+
+  pagedData.forEach((p, i) => {
     const badgeClass = `badge-${p.cat}`;
-    const badgeLabel =
-      p.cat === "women" ? "Women" : p.cat === "men" ? "Men" : "Unisex";
+    const badgeLabel = p.cat.charAt(0).toUpperCase() + p.cat.slice(1);
     const card = document.createElement("article");
-    card.className = "produk-card";
-    card.style.animationDelay = `${(i % 6) * 0.06}s`;
+    card.className = "produk-card reveal";
+    card.style.animationDelay = `${(i % 10) * 0.05}s`;
+    
     card.innerHTML = `
+      <div class="produk-card-img-wrapper">
+        <img src="${p.image}" alt="${p.name}" class="produk-img" onerror="this.src='img/ankparfume.webp'" loading="lazy">
+      </div>
       <div class="produk-card-header">
         <h3 class="produk-name">${p.name}</h3>
         <span class="produk-badge ${badgeClass}">${badgeLabel}</span>
       </div>
-      <p class="produk-desc">${p.desc}</p>
+      <p class="produk-desc">${p.desc || "Wewangian premium dengan kualitas terbaik."}</p>
       <div class="produk-prices">
-        <span class="price-pill">30ml <strong>${formatRupiah(p.p30)}</strong></span>
-        <span class="price-pill">50ml <strong>${formatRupiah(p.p50)}</strong></span>
-        <span class="price-pill">100ml <strong>${formatRupiah(p.p100)}</strong></span>
+        <span class="price-pill">30ml <strong>${formatRupiah(p.prices.p30)}</strong></span>
+        <span class="price-pill">50ml <strong>${formatRupiah(p.prices.p50)}</strong></span>
+        <span class="price-pill">100ml <strong>${formatRupiah(p.prices.p100)}</strong></span>
       </div>
+      <a href="${buildWALink(p.name)}" target="_blank" class="btn-wa-card">Pesan Sekarang</a>
     `;
     grid.appendChild(card);
   });
+
+  if (typeof initReveal === "function") initReveal();
 }
 
-/* exposed globally for footer links */
-function filterProducts(cat) {
+/* ---------- PAGINATION RENDERER ---------- */
+function togglePaginationVisibility(visible) {
+  const containers = document.querySelectorAll(".pagination-container");
+  containers.forEach(container => {
+    container.style.display = visible ? "flex" : "none";
+  });
+}
+
+function renderPagination(totalItems) {
+  const containers = document.querySelectorAll(".pagination-container");
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  
+  if (totalPages <= 1) {
+    containers.forEach(c => c.innerHTML = "");
+    return;
+  }
+
+  let html = "";
+  html += `<button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>&laquo;</button>`;
+  
+  for (let i = 1; i <= totalPages; i++) {
+    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+  }
+
+  html += `<button class="page-btn ${currentPage === totalPages ? 'disabled' : ''}" onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>&raquo;</button>`;
+
+  containers.forEach(c => c.innerHTML = html);
+}
+
+window.changePage = function(page) {
+  currentPage = page;
+  renderProducts();
+  const grid = document.getElementById("produkGrid");
+  if (grid) {
+    const offset = 100;
+    window.scrollTo({
+      top: grid.getBoundingClientRect().top + window.scrollY - offset,
+      behavior: "smooth"
+    });
+  }
+};
+
+window.filterProducts = function(cat) {
   activeFilter = cat;
-  renderProducts(cat);
+  currentPage = 1; 
+  renderProducts();
+  
   document.querySelectorAll(".tab").forEach((t) => {
     t.classList.toggle("active", t.dataset.filter === cat);
-    t.setAttribute(
-      "aria-selected",
-      t.dataset.filter === cat ? "true" : "false",
-    );
+    t.setAttribute("aria-selected", t.dataset.filter === cat ? "true" : "false");
+  });
+};
+
+/* ---------- SEARCH LOGIC ---------- */
+function initSearch() {
+  const searchInput = document.getElementById("searchInput");
+  if (!searchInput) return;
+
+  searchInput.addEventListener("input", (e) => {
+    activeSearch = e.target.value;
+    currentPage = 1;
+    renderProducts();
   });
 }
 
@@ -304,9 +178,19 @@ function initTabs() {
   });
 }
 
-/* ---------- NAVBAR SCROLL EFFECT ---------- */
+/* ---------- URL PARAMS ---------- */
+function handleUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const filter = params.get("filter");
+  if (filter) {
+    filterProducts(filter);
+  }
+}
+
+/* ---------- NAVBAR & OTHER UI ---------- */
 function initNavbar() {
   const navbar = document.getElementById("navbar");
+  if (!navbar) return;
   const onScroll = () => {
     navbar.classList.toggle("scrolled", window.scrollY > 30);
   };
@@ -314,7 +198,6 @@ function initNavbar() {
   onScroll();
 }
 
-/* ---------- HAMBURGER MENU ---------- */
 function initMobileMenu() {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
@@ -337,78 +220,60 @@ function initMobileMenu() {
   });
 }
 
-/* ---------- SMOOTH SCROLL ---------- */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
-      const target = document.querySelector(anchor.getAttribute("href"));
-      if (!target) return;
-      e.preventDefault();
-      const offset =
-        parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--nav-h",
-          ),
-        ) || 72;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
+      const targetId = anchor.getAttribute("href").substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        const offset = 72;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     });
   });
 }
 
-/* ---------- SCROLL REVEAL (Intersection Observer) ---------- */
 function initReveal() {
-  const elements = document.querySelectorAll(".reveal");
+  const elements = document.querySelectorAll(".reveal:not(.visible)");
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, idx) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Stagger delay for grid items
-          const delay = entry.target.closest(
-            ".usp-grid, .produk-grid, .testi-grid",
-          )
-            ? Array.from(entry.target.parentElement.children).indexOf(
-                entry.target,
-              ) * 80
-            : 0;
-          setTimeout(() => entry.target.classList.add("visible"), delay);
+          entry.target.classList.add("visible");
           observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    { threshold: 0.1, rootMargin: "0px 0px -20px 0px" },
   );
 
   elements.forEach((el) => observer.observe(el));
 }
 
-/* ---------- ACTIVE NAV LINK on SCROLL ---------- */
 function initActiveNav() {
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
+  if (sections.length === 0) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          const id = entry.target.id;
           navLinks.forEach((link) => {
-            link.classList.toggle(
-              "active-nav",
-              link.getAttribute("href") === `#${entry.target.id}`,
-            );
+            const href = link.getAttribute("href");
+            link.classList.toggle("active-nav", href === `#${id}` || href.includes(`#${id}`));
           });
         }
       });
     },
-    {
-      rootMargin: `-${(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 72) + 20}px 0px -60% 0px`,
-    },
+    { rootMargin: "-40% 0px -40% 0px" },
   );
-
   sections.forEach((s) => observer.observe(s));
 }
 
-/* ---------- AUTO COPYRIGHT YEAR ---------- */
 function initYear() {
   const el = document.getElementById("year");
   if (el) el.textContent = new Date().getFullYear();
@@ -417,8 +282,12 @@ function initYear() {
 /* ---------- INIT ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initYear();
-  renderProducts("all");
-  initTabs();
+  if (typeof products !== "undefined") {
+    renderProducts();
+    initTabs();
+    initSearch();
+    handleUrlParams();
+  }
   initNavbar();
   initMobileMenu();
   initSmoothScroll();
