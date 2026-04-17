@@ -282,15 +282,27 @@ function initYear() {
 /* ---------- INIT ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initYear();
+  
+  // High Priority: Render initial view immediately
   if (typeof products !== "undefined") {
     renderProducts();
-    initTabs();
-    initSearch();
-    handleUrlParams();
   }
-  initNavbar();
-  initMobileMenu();
-  initSmoothScroll();
-  initReveal();
-  initActiveNav();
+
+  // Stagger non-critical tasks to reduce TBT
+  setTimeout(() => {
+    initNavbar();
+    initMobileMenu();
+    initSmoothScroll();
+    
+    if (typeof products !== "undefined") {
+      initTabs();
+      initSearch();
+      handleUrlParams();
+    }
+  }, 50);
+
+  setTimeout(() => {
+    initReveal();
+    initActiveNav();
+  }, 150);
 });

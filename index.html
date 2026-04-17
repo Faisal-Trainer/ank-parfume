@@ -127,8 +127,6 @@
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="img/ankparfume.webp" as="image" fetchpriority="high" />
-    <link rel="preload" href="style.css" as="style" />
-    <link rel="preload" href="products.js" as="script" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -242,7 +240,6 @@
         <div class="hero-bg">
           <div class="hero-orb hero-orb-1"></div>
           <div class="hero-orb hero-orb-2"></div>
-          <div class="hero-grain"></div>
         </div>
         <div class="hero-content fade-in">
           <p class="hero-eyebrow">Bukittinggi, Sumatera Barat</p>
@@ -369,40 +366,7 @@
           </div>
           <div id="paginationContainer" class="pagination-container reveal"></div>
           <div class="produk-grid" id="produkGrid">
-            <!-- Pre-rendered for performance (LCP) -->
-            <article class="produk-card reveal visible" style="animation-delay: 0s;">
-              <div class="produk-card-img-wrapper">
-                <img src="img/ank perfume product/Armani SWY.webp" alt="Armani SWY" class="produk-img" decoding="async" fetchpriority="high" loading="eager">
-              </div>
-              <div class="produk-card-header">
-                <h3 class="produk-name">Armani SWY</h3>
-                <span class="produk-badge badge-men">Men</span>
-              </div>
-              <p class="produk-desc">Aromatic fougère yang elegan. Si Armani tapi lebih berani dan maskulin.</p>
-              <div class="produk-prices">
-                <span class="price-pill">30ml <strong>Rp 75.000</strong></span>
-                <span class="price-pill">50ml <strong>Rp 115.000</strong></span>
-                <span class="price-pill">100ml <strong>Rp 170.000</strong></span>
-              </div>
-              <a href="https://wa.me/6282169856049?text=Halo%20ANK%20Parfume%2C%20saya%20tertarik%20dengan%20Armani%20SWY%20%F0%9F%98%8A%20Boleh%20info%20ketersediaan%20%26%20ukurnya%3F" target="_blank" class="btn-wa-card">Pesan Sekarang</a>
-            </article>
-            <article class="produk-card reveal visible" style="animation-delay: 0.05s;">
-              <div class="produk-card-img-wrapper">
-                <img src="img/ank perfume product/Acqua Di Gio.webp" alt="Acqua di Gio" class="produk-img" decoding="async" fetchpriority="high" loading="eager">
-              </div>
-              <div class="produk-card-header">
-                <h3 class="produk-name">Acqua di Gio</h3>
-                <span class="produk-badge badge-men">Men</span>
-              </div>
-              <p class="produk-desc">Kesegaran laut Mediterania yang ikonik. Klasik, segar, dan maskulin.</p>
-              <div class="produk-prices">
-                <span class="price-pill">30ml <strong>Rp 70.000</strong></span>
-                <span class="price-pill">50ml <strong>Rp 110.000</strong></span>
-                <span class="price-pill">100ml <strong>Rp 165.000</strong></span>
-              </div>
-              <a href="https://wa.me/6282169856049?text=Halo%20ANK%20Parfume%2C%20saya%20tertarik%20dengan%20Acqua%20di%20Gio%20%F0%9F%98%8A%20Boleh%20info%20ketersediaan%20%26%20ukurnya%3F" target="_blank" class="btn-wa-card">Pesan Sekarang</a>
-            </article>
-            <!-- More products will be synced/rendered by script.js -->
+            <!-- Injected by products.js & script.js -->
           </div>
           <div id="paginationContainer" class="pagination-container reveal"></div>
           
