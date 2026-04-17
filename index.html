@@ -143,7 +143,25 @@
       <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
     </noscript>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <style>
+      :root {
+        --black: #0a0a0a; --black-2: #111111; --gold: #c9a84c; --white: #f5f0e8;
+        --white-dim: rgba(245, 240, 232, 0.55); --font-display: "Cormorant Garamond", serif;
+        --font-body: "Jost", sans-serif; --nav-h: 72px; --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background-color: var(--black); color: #d4cbbf; font-family: var(--font-body); overflow-x: hidden; }
+      .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 900; height: var(--nav-h); transition: background var(--transition); }
+      .nav-container { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 100%; display: flex; align-items: center; }
+      .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+      .hero { position: relative; min-height: 100svh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--black); }
+      .hero-content { position: relative; z-index: 2; text-align: center; max-width: 800px; }
+      .logo-img { height: 52px; width: auto; mix-blend-mode: lighten; display: block; }
+      .section-title { font-family: var(--font-display); font-size: 2.5rem; color: var(--white); margin-bottom: 0.5rem; }
+      .produk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: rgba(201, 168, 76, 0.1); }
+      .produk-card { background: var(--black); padding: 1.5rem; border: 1px solid rgba(201, 168, 76, 0.05); }
+    </style>
   </head>
   <body>
     <!-- ===== FLOATING WA BUTTON ===== -->
@@ -351,7 +369,40 @@
           </div>
           <div id="paginationContainer" class="pagination-container reveal"></div>
           <div class="produk-grid" id="produkGrid">
-            <!-- Injected by products.js & script.js -->
+            <!-- Pre-rendered for performance (LCP) -->
+            <article class="produk-card reveal visible" style="animation-delay: 0s;">
+              <div class="produk-card-img-wrapper">
+                <img src="img/ank perfume product/Armani SWY.webp" alt="Armani SWY" class="produk-img" decoding="async" fetchpriority="high" loading="eager">
+              </div>
+              <div class="produk-card-header">
+                <h3 class="produk-name">Armani SWY</h3>
+                <span class="produk-badge badge-men">Men</span>
+              </div>
+              <p class="produk-desc">Aromatic fougère yang elegan. Si Armani tapi lebih berani dan maskulin.</p>
+              <div class="produk-prices">
+                <span class="price-pill">30ml <strong>Rp 75.000</strong></span>
+                <span class="price-pill">50ml <strong>Rp 115.000</strong></span>
+                <span class="price-pill">100ml <strong>Rp 170.000</strong></span>
+              </div>
+              <a href="https://wa.me/6282169856049?text=Halo%20ANK%20Parfume%2C%20saya%20tertarik%20dengan%20Armani%20SWY%20%F0%9F%98%8A%20Boleh%20info%20ketersediaan%20%26%20ukurnya%3F" target="_blank" class="btn-wa-card">Pesan Sekarang</a>
+            </article>
+            <article class="produk-card reveal visible" style="animation-delay: 0.05s;">
+              <div class="produk-card-img-wrapper">
+                <img src="img/ank perfume product/Acqua Di Gio.webp" alt="Acqua di Gio" class="produk-img" decoding="async" fetchpriority="high" loading="eager">
+              </div>
+              <div class="produk-card-header">
+                <h3 class="produk-name">Acqua di Gio</h3>
+                <span class="produk-badge badge-men">Men</span>
+              </div>
+              <p class="produk-desc">Kesegaran laut Mediterania yang ikonik. Klasik, segar, dan maskulin.</p>
+              <div class="produk-prices">
+                <span class="price-pill">30ml <strong>Rp 70.000</strong></span>
+                <span class="price-pill">50ml <strong>Rp 110.000</strong></span>
+                <span class="price-pill">100ml <strong>Rp 165.000</strong></span>
+              </div>
+              <a href="https://wa.me/6282169856049?text=Halo%20ANK%20Parfume%2C%20saya%20tertarik%20dengan%20Acqua%20di%20Gio%20%F0%9F%98%8A%20Boleh%20info%20ketersediaan%20%26%20ukurnya%3F" target="_blank" class="btn-wa-card">Pesan Sekarang</a>
+            </article>
+            <!-- More products will be synced/rendered by script.js -->
           </div>
           <div id="paginationContainer" class="pagination-container reveal"></div>
           
