@@ -83,7 +83,7 @@ function renderProducts() {
     
     card.innerHTML = `
       <div class="produk-card-img-wrapper">
-        <img src="${p.image}" alt="${p.name}" class="produk-img" onerror="this.src='img/ankparfume.webp'" loading="lazy">
+        <img src="${p.image}" alt="${p.altimg || p.name}" class="produk-img" onerror="this.src='img/ankparfume.webp'" loading="lazy" decoding="async">
       </div>
       <div class="produk-card-header">
         <h3 class="produk-name">${p.name}</h3>

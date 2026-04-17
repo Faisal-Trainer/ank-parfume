@@ -423,6 +423,8 @@ button {
   background: var(--black-2);
   border-top: 1px solid rgba(201, 168, 76, 0.08);
   border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
 }
 .usp-grid {
   display: grid;
@@ -485,6 +487,8 @@ button {
 .produk {
   padding: 100px 0;
   background: var(--black);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
 }
 
 .filter-tabs {
@@ -732,6 +736,8 @@ button {
   background: var(--black-2);
   border-top: 1px solid rgba(201, 168, 76, 0.08);
   border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
 }
 .tentang-inner {
   display: grid;
