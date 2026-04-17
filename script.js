@@ -279,30 +279,50 @@ function initYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
+/* ---------- LAZY MAP ---------- */
+function initLazyMap() {
+  const map = document.getElementById("googleMap");
+  if (!map) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          map.src = map.dataset.src;
+          observer.unobserve(map);
+        }
+      });
+    },
+    { rootMargin: "200px" },
+  );
+  observer.observe(map);
+}
+
 /* ---------- INIT ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initYear();
-  
-  // High Priority: Render initial view immediately
+  // Render products as soon as possible, but it's the only thing on DOMContentLoaded
   if (typeof products !== "undefined") {
     renderProducts();
   }
+});
 
-  // Stagger non-critical tasks to reduce TBT
-  setTimeout(() => {
-    initNavbar();
-    initMobileMenu();
-    initSmoothScroll();
-    
-    if (typeof products !== "undefined") {
-      initTabs();
-      initSearch();
-      handleUrlParams();
-    }
-  }, 50);
+// Move all non-critical, heavy computations to window.onload
+window.addEventListener("load", () => {
+  initNavbar();
+  initMobileMenu();
+  initSmoothScroll();
+  initLazyMap();
+  
+  if (typeof products !== "undefined") {
+    initTabs();
+    initSearch();
+    handleUrlParams();
+  }
 
+  // Delay potentially heavy IntersectionObserver setup
   setTimeout(() => {
     initReveal();
     initActiveNav();
-  }, 150);
+  }, 250);
 });
